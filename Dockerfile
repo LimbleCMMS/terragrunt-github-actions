@@ -1,4 +1,4 @@
-FROM alpine:3 
+FROM alpine:3.14.2
 
 RUN ["/bin/sh", "-c", "apk add --update --no-cache bash ca-certificates curl git jq openssh"]
 
