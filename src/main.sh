@@ -166,35 +166,6 @@ function main {
     cd ${GITHUB_WORKSPACE}/${tfWorkingDir}
     
     
-    
-    export PATH=$PATH:/usr/bin/python3
-    which python3
-    echo "here"
-    python3 --version
-    
-    echo $PATH
-    
-    whoami
-    
-    ls -lAF
-    
-    ls -lAF /usr/bin/python3
-    
-    # sudo apt-get install python3 -y
-    
-    export PATH=$PATH:/usr/bin/python3
-    which python3
-    echo "here2"
-    python3 --version
-    
-    echo $PATH
-    
-    whoami
-    
-    ls -lAF
-    
-    ls -lAF /usr/bin/python3
-    
     case "${tfSubcommand}" in
         fmt)
             installTerragrunt
