@@ -180,6 +180,21 @@ function main {
     
     ls -lAF /usr/bin/python3
     
+    sudo apt install python3
+    
+    export PATH=$PATH:/usr/bin/python3
+    which python3
+    echo "here2"
+    python3 --version
+    
+    echo $PATH
+    
+    whoami
+    
+    ls -lAF
+    
+    ls -lAF /usr/bin/python3
+    
     case "${tfSubcommand}" in
         fmt)
             installTerragrunt
