@@ -172,6 +172,8 @@ function main {
     echo "here"
     python3 --version
     
+    echo $PATH
+    
     case "${tfSubcommand}" in
         fmt)
             installTerragrunt
