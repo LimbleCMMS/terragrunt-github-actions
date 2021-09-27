@@ -178,6 +178,8 @@ function main {
     
     ls -lAF
     
+    ls -lAF /usr/bin/python3
+    
     case "${tfSubcommand}" in
         fmt)
             installTerragrunt
