@@ -166,10 +166,11 @@ function main {
     cd ${GITHUB_WORKSPACE}/${tfWorkingDir}
     
     
+    
+    export PATH=$PATH:/usr/bin/python3
     which python3
     echo "here"
     python3 --version
-    export PATH=$PATH:/usr/bin/python3
     
     case "${tfSubcommand}" in
         fmt)
