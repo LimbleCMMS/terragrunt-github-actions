@@ -174,6 +174,10 @@ function main {
     
     echo $PATH
     
+    whoami
+    
+    ls -lAF
+    
     case "${tfSubcommand}" in
         fmt)
             installTerragrunt
