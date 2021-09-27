@@ -165,9 +165,11 @@ function main {
     installTerraform
     cd ${GITHUB_WORKSPACE}/${tfWorkingDir}
     
+    
     which python3
     echo "here"
     python3 --version
+    export PATH=$PATH:/usr/bin/python3
     
     case "${tfSubcommand}" in
         fmt)
