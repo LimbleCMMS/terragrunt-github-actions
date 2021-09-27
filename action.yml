@@ -33,6 +33,18 @@ inputs:
   tf_actions_fmt_write:
     description: 'Write Terragrunt fmt changes to source files.'
     default: false
+  aws_secret_id:
+    description: 'AWS secret ID'
+    default: false
+  aws_secret_key:
+    description: 'aws secret key'
+    default: false
+  aws_profile:
+    description: 'aws profile'
+    default: false
+  aws_region:
+    description: 'aws region'
+    default: false
 outputs:
   tf_actions_output:
     description: 'The Terragrunt outputs in JSON format.'

@@ -73,6 +73,24 @@ function parseInputs {
     if [ -n "${TF_WORKSPACE}" ]; then
         tfWorkspace="${TF_WORKSPACE}"
     fi
+    
+    # AWS SECRETS HANDLING
+    AWS_SECRET_ID=""
+    if [[ -n "${INPUT_AWS_SECRET_ID}" ]]; then
+        AWS_SECRET_ID=${INPUT_AWS_SECRET_ID}
+    fi
+    AWS_SECRET_KEY=""
+    if [[ -n "${INPUT_AWS_SECRET_KEY}" ]]; then
+        AWS_SECRET_KEY=${INPUT_AWS_SECRET_KEY}
+    fi
+    AWS_PROFILE=""
+    if [[ -n "${INPUT_AWS_PROFILE}" ]]; then
+        AWS_PROFILE=${INPUT_AWS_PROFILE}
+    fi
+    AWS_REGION=""
+    if [[ -n "${INPUT_AWS_REGION}" ]]; then
+        AWS_REGION=${INPUT_AWS_REGION}
+    fi
 }
 
 function configureCLICredentials {
@@ -164,6 +182,15 @@ function main {
     configureCLICredentials
     installTerraform
     cd ${GITHUB_WORKSPACE}/${tfWorkingDir}
+    
+    
+    mkdir -p ~/.aws
+    touch ~/.aws/credentials
+    
+    echo "[${AWS_PROFILE}]
+    aws_access_key_id = ${AWS_SECRET_ID}
+    aws_secret_access_key = ${AWS_SECRET_KEY}
+    region = ${AWS_REGION}" > ~/.aws/credentials
     
     
     case "${tfSubcommand}" in
