@@ -2,6 +2,8 @@
 
 function terragruntPlan {
   # Gather the output of `terragrunt plan`.
+  which python3
+  
   echo "plan: info: planning Terragrunt configuration in ${tfWorkingDir}"
   planOutput=$(${tfBinary} plan -detailed-exitcode -input=false ${*} 2>&1)
   planExitCode=${?}
