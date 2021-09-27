@@ -180,7 +180,7 @@ function main {
     
     ls -lAF /usr/bin/python3
     
-    sudo apt-get install python3 -y
+    # sudo apt-get install python3 -y
     
     export PATH=$PATH:/usr/bin/python3
     which python3
