@@ -5,10 +5,9 @@ RUN ["/bin/sh", "-c", "apk add --update --no-cache bash ca-certificates curl git
 # ENV PYTHONUNBUFFERED=1
 RUN ln -sf python3 /usr/bin/python
 RUN ln -sf python3.8 /usr/bin/python
-
+# psycopg2-binary
 RUN apk update \
     && apk add --virtual build-deps python3-dev musl-dev \
-    && pip install psycopg2-binary \
     && apk add jpeg-dev zlib-dev libjpeg \
     && pip install Pillow \
     && apk del build-deps
