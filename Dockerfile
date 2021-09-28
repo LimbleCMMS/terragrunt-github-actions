@@ -1,6 +1,6 @@
 FROM python:3.8-alpine
 
-RUN ["/bin/sh", "-c", "apk add --update --no-cache bash ca-certificates curl git jq openssh gcc libc-dev build-deps python3-dev musl-dev zlib-dev"]
+RUN ["/bin/sh", "-c", "apk add --update --no-cache bash ca-certificates curl git jq openssh gcc libc-dev python3-dev zlib-dev"]
 # Install python/pip
 # ENV PYTHONUNBUFFERED=1
 RUN ln -sf python3 /usr/bin/python
