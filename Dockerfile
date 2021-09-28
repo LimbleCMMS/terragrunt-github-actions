@@ -8,7 +8,7 @@ RUN ln -sf python3.8 /usr/bin/python
 
 RUN apk update \
     && apk add --virtual build-deps python3-dev musl-dev \
-    && pip install psycopg2 \
+    && pip install psycopg2-binary \
     && apk add jpeg-dev zlib-dev libjpeg \
     && pip install Pillow \
     && apk del build-deps
