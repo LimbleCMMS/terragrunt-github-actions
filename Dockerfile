@@ -5,6 +5,10 @@ RUN ["/bin/sh", "-c", "apk add --update --no-cache bash ca-certificates curl git
 # ENV PYTHONUNBUFFERED=1
 RUN ln -sf python3 /usr/bin/python
 RUN ln -sf python3.8 /usr/bin/python
+
+# Required by some python modules
+RUN python3 -m pip install --upgrade pip
+RUN python3 -m pip install --upgrade Pillow
 # RUN apk add --update --no-cache python3.8-full && ln -sf python3.8 /usr/bin/python
 # RUN ln -sf python3.8 /usr/bin/python
 # RUN python3 -m ensurepip
