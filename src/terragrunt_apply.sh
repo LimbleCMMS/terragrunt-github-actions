@@ -9,8 +9,8 @@ function terragruntApply {
 
   # If the first apply fails, then try again, this is needed because the terraform python module (terraform-aws-modules/lambda/aws) we use has a bug that prevents it from working the first apply usually.
   if [ ${applyExitCode} -eq 1 ]; then
-    echo "apply: info: failed first run apply, trying again Terragrunt configuration in ${tfWorkingDir}"
     echo "${applyOutput}"
+    echo "apply: info: failed first run apply, trying again Terragrunt configuration in ${tfWorkingDir}"
     applyOutput=$(${tfBinary} apply -auto-approve -input=false ${*} 2>&1)
     applyExitCode=${?}
     applyCommentStatus="Failed"
