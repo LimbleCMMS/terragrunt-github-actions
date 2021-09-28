@@ -145,7 +145,7 @@ function installTerragrunt {
         fi
     fi
     
-    url="https://github.com/gruntwork-io/terragrunt/releases/download/${tgVersion}/terragrunt_linux_amd64"
+    url="https://github.com/gruntwork-io/terragrunt/releases/download/v${tgVersion}/terragrunt_linux_amd64"
     
     echo "Downloading Terragrunt ${tgVersion}"
     curl -s -S -L -o /tmp/terragrunt ${url}
