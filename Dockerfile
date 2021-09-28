@@ -1,27 +1,15 @@
 FROM python:3.8-alpine
 
 RUN ["/bin/sh", "-c", "apk add --update --no-cache bash ca-certificates curl git jq openssh gcc libc-dev"]
-# Install python/pip
-# ENV PYTHONUNBUFFERED=1
 RUN ln -sf python3 /usr/bin/python
 RUN ln -sf python3.8 /usr/bin/python
-# psycopg2-binary
+
+# Install more deps
 RUN apk update \
     && apk add --virtual build-deps python3-dev musl-dev \
     && apk add jpeg-dev zlib-dev libjpeg \
     && pip install Pillow \
     && apk del build-deps
-# Required by some python modules
-# RUN python3 -m pip install --upgrade pip
-# RUN python3 -m pip install --upgrade Pillow
-# RUN apk add --update --no-cache python3.8-full && ln -sf python3.8 /usr/bin/python
-# RUN ln -sf python3.8 /usr/bin/python
-# RUN python3 -m ensurepip
-# RUN pip3 install --no-cache --upgrade pip setuptools
-
-# alias python 3.8 to python3, this is required by our configuration
-# RUN echo "alias python3.8=python3" >> ~/.bash_aliases
-# RUN which python3.8
 
 COPY ["src", "/src/"]
 
