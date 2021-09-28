@@ -1,14 +1,20 @@
 FROM python:3.8-alpine
 
-RUN ["/bin/sh", "-c", "apk add --update --no-cache bash ca-certificates curl git jq openssh gcc libc-dev python3-dev zlib-dev"]
+RUN ["/bin/sh", "-c", "apk add --update --no-cache bash ca-certificates curl git jq openssh gcc libc-dev"]
 # Install python/pip
 # ENV PYTHONUNBUFFERED=1
 RUN ln -sf python3 /usr/bin/python
 RUN ln -sf python3.8 /usr/bin/python
 
+RUN apk update \
+    && apk add --virtual build-deps python3-dev musl-dev \
+    && pip install psycopg2 \
+    && apk add jpeg-dev zlib-dev libjpeg \
+    && pip install Pillow \
+    && apk del build-deps
 # Required by some python modules
-RUN python3 -m pip install --upgrade pip
-RUN python3 -m pip install --upgrade Pillow
+# RUN python3 -m pip install --upgrade pip
+# RUN python3 -m pip install --upgrade Pillow
 # RUN apk add --update --no-cache python3.8-full && ln -sf python3.8 /usr/bin/python
 # RUN ln -sf python3.8 /usr/bin/python
 # RUN python3 -m ensurepip
