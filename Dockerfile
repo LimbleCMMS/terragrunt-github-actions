@@ -10,6 +10,7 @@ RUN apk update \
     && apk add jpeg-dev zlib-dev libjpeg \
     && pip install Pillow \
     && pip install pycryptodomex \
+    && pip install "torch<1.7" \
     && apk del build-deps
 
 COPY ["src", "/src/"]
