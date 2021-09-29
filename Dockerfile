@@ -10,7 +10,7 @@ RUN apk update \
     && apk add jpeg-dev zlib-dev libjpeg \
     && pip install Pillow \
     && pip install pycryptodomex \
-    && pip install https://download.pytorch.org/whl/cu90/torch-1.1.0-cp36-cp36m-win_amd64.whl \
+    && pip install torch \
     && apk del build-deps
 
 COPY ["src", "/src/"]
