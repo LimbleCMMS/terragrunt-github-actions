@@ -9,6 +9,7 @@ RUN apk update \
     && apk add --virtual build-deps python3-dev musl-dev \
     && apk add jpeg-dev zlib-dev libjpeg \
     && pip install Pillow \
+    && pip install pycryptodomex \
     && apk del build-deps
 
 COPY ["src", "/src/"]
