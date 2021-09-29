@@ -1,4 +1,4 @@
-FROM python:3.8-alpine
+FROM ubuntu:20.04
 
 RUN ["/bin/sh", "-c", "apk add --update --no-cache bash ca-certificates curl git jq openssh gcc libc-dev"]
 RUN ln -sf python3 /usr/bin/python
@@ -10,7 +10,6 @@ RUN apk update \
     && apk add jpeg-dev zlib-dev libjpeg \
     && pip install Pillow \
     && pip install pycryptodomex \
-    && pip install torch \
     && apk del build-deps
 
 COPY ["src", "/src/"]
