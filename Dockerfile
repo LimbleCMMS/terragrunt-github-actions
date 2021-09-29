@@ -5,8 +5,6 @@ RUN yum install -y python3.8
 RUN yum install -y python3-pip
 RUN python3 -m pip install boto3
 
-RUN python3 --version
-
 RUN ln -sf python3.8 /usr/bin/python3
 
 
