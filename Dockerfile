@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 
-RUN ["/bin/sh", "-c", "apt-get install bash ca-certificates curl git jq openssh gcc libc-dev"]
+RUN ["/bin/sh", "-c", "apt-get install bash curl git jq openssh gcc libc-dev"]
 RUN ln -sf python3 /usr/bin/python
 RUN ln -sf python3.8 /usr/bin/python
 
