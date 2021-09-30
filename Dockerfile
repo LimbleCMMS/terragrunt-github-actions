@@ -11,6 +11,3 @@ RUN ln -sf python3.8 /usr/bin/python3
 COPY ["src", "/src/"]
 
 ENTRYPOINT ["/src/main.sh"]
-
-
-# curl git jq openssh gcc libc-dev

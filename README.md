@@ -1,6 +1,10 @@
 # Forking Reason
 
-This repo was forked so we could inject python into the alpine linux docker image, as well as inject specific AWS credential profiles into the container.
+This repo was forked so we could use amazon linux 2 with python 3.8, node 14, boto3, and other dependencies we require to run terragrunt. We also added the ability to inject specific AWS credential profiles into the container.
+
+We also made terragrunt apply run twice on every execution because many modules (python ones, for us) require apply to be ran twice for one reason or another to get a success result.
+
+Let us know if you see any other improvements that could be made!
 
 # Terragrunt GitHub Actions
 
