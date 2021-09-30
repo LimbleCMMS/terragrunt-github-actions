@@ -7,7 +7,11 @@ RUN python3 -m pip install boto3
 
 RUN ln -sf python3.8 /usr/bin/python3
 
+RUN curl --silent --location https://rpm.nodesource.com/setup_14.x | bash -
+RUN yum -y install nodejs
+
 
 COPY ["src", "/src/"]
 
 ENTRYPOINT ["/src/main.sh"]
+
